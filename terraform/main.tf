@@ -21,22 +21,6 @@ resource "aws_instance" "dev" {
     }
 }
 
-resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
-  description = "allow_ssh"
-
-  ingress {
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = ["85.247.153.90/32"]
-
-  }
-  tags = {
-    Name = "allow_all"
-  }
-}
-
 resource "aws_s3_bucket" "b-dev4" {
   bucket = "g6d-bucket-dev4"
 
@@ -49,3 +33,5 @@ resource "aws_s3_bucket_acl" "b-dev4" {
   bucket = aws_s3_bucket.b-dev4.id
   acl    = "private"
 }
+
+variable "ami_aws_linux" {}
