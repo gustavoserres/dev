@@ -8,7 +8,9 @@ terraform {
 }
 
 provider "aws" {
-    region = "eu-west-3" 
+    region = var.aws_region_paris
+    access_key = var.aws_access_key
+    secret_key = var.aws_secret_key
 }
 
 resource "aws_instance" "dev" {
@@ -35,3 +37,6 @@ resource "aws_s3_bucket_acl" "b-dev4" {
 }
 
 variable "ami_aws_linux" {}
+variable aws_region_paris{}
+variable aws_access_key {}
+variable aws_secret_key {} 
