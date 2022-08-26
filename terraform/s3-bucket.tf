@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "b-dev" {
   }
 }
 
-resource "aws_s3_bucket_acl" "b-dev" {
+resource "aws_s3_bucket_acl" "b-dev-acl" {
   provider = aws.eu-west-2
   bucket = aws_s3_bucket.b-dev.id
   acl    = "private"
